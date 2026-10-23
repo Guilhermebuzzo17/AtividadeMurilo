@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang ="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar Post</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+    <body>
+
+    <h1>Buscar Post</h1>
+    <inputtype= "number" id="idPost" placehold="Dogote o ID">
+    <button id="buscar">Buscar</button>
+    <div id="resultado"></div>
+
+        <script>
+
+
+            const post= [
+                {userid: 1, id: 1, title: "Primeiro post", body:"Aprendendo a manipular o DOM."},
+                {userid: 1, id: 2, title: "Segundo post", body:"Arrys de objetos são parecidos com o Json de uma API."},
+                {userid: 2, id: 3, title: "Terceiro post", body:"Em breve vamos buscar estes dados no servidor."},
+                {userid: 2, id: 4, title: "Quarto post", body:"O metodo find deve o primeiro item encontrado."},
+                {userid: 3, id: 5, title: "Quinto post", body:"Se nada for Encontrado, find devolve undefined."}
+            ];
+
+            const compo = document.getElementById("idPost");
+            const botao = document.getElementById("buscar");
+            const resultado = document.getElementById("resultado");
+
+            botao.addEventListener("click", function(){
+
+                resultado.innerHTML="";
+
+                if (Campo.value == ""){
+                    resultado.textContent = "Digite um ID.";
+                    return;
+                }
+
+                const id = Number(campo.value);
+
+                const post = posts.find(function (post){
+                    return post.id == id;
+                });
+                if(postEncontado == undefined){
+                    resultado.style.color = "red";
+                    resultado.innerHTML = "post não encontado (Id "+ id + "). Os Ids validos vão de 1 a 5. ";
+                    return;
+                } else {
+
+                    const titulo = document.createAttribute("h2");
+                    titulo.textContent = postEncontado.title;
+
+                    const corpo = document.createAttribute("p");
+                    corpo.textContent = postEncontado.body;
+
+                    resultado.appendChild(titulo);
+                    resultado.appendChild(corpo);
+                }
+            });
+
+
+
+
+
+
+        </script>
+
+    </body>
+</html>
